@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Information Form</title>
+<!-- Include Tailwind CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+
+<div class="max-w-lg mx-auto">
+
+  <h2 class="text-4xl font-bold mb-8 text-center">Student Information Form</h2>
+
+  {% if PlacementStatus %}
+    <div class="bg-green-200 text-green-800 px-4 py-2 rounded-md mb-4 text-center">
+      {{ PlacementStatus }}
+    </div>
+  {% endif %}
+
+  <form action="/" method="post" class="space-y-6">
+
+    <div>
+      <label for="CGPA" class="block font-bold text-xl">CGPA:</label>
+      <input type="range" id="CGPA" name="CGPA" min="0" max="10" step="0.01" value="5" class="w-full" required>
+      <span class="text-sm text-gray-500 block mt-2">Current Value: <span id="cgpaValue">5.00</span></span>
+    </div>
+    
+    <div>
+      <label for="Internships" class="block font-bold text-xl">Internships:</label>
+      <select id="Internships" name="Internships" class="w-full">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="Projects" class="block font-bold text-xl">Projects:</label>
+      <select id="Projects" name="Projects" class="w-full">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="Workshops/Certifications" class="block font-bold text-xl">Workshops/Certifications:</label>
+      <select id="Workshops/Certifications" name="Workshops/Certifications" class="w-full">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="AptitudeTestScore" class="block font-bold text-xl">Aptitude Test Score:</label>
+      <input type="range" id="AptitudeTestScore" name="AptitudeTestScore" min="0" max="100" value="50" class="w-full" required>
+      <span class="text-sm text-gray-500 block mt-2">Current Value: <span id="aptitudeValue">50</span></span>
+    </div>
+    
+    <div>
+      <label for="SoftSkillsRating" class="block font-bold text-xl">Soft Skills Rating:</label>
+      <input type="range" id="SoftSkillsRating" name="SoftSkillsRating" min="0" max="5" step="0.01" value="2.5" class="w-full" required>
+      <span class="text-sm text-gray-500 block mt-2">Current Value: <span id="softskillsValue">2.50</span></span>
+    </div>
+    
+    <div class="space-x-4">
+      <label class="block font-bold text-xl">Extracurricular Activities:</label>
+      <div class="flex">
+        <input type="radio" id="ExtracurricularActivities_yes" name="ExtracurricularActivities" value="Yes" required>
+        <label for="ExtracurricularActivities_yes">Yes</label>
+        <input type="radio" id="ExtracurricularActivities_no" name="ExtracurricularActivities" value="No" required>
+        <label for="ExtracurricularActivities_no">No</label>
+      </div>
+    </div>
+    
+    <div class="space-x-4">
+      <label class="block font-bold text-xl">Placement Training:</label>
+      <div class="flex">
+        <input type="radio" id="PlacementTraining_yes" name="PlacementTraining" value="Yes" required>
+        <label for="PlacementTraining_yes">Yes</label>
+        <input type="radio" id="PlacementTraining_no" name="PlacementTraining" value="No" required>
+        <label for="PlacementTraining_no">No</label>
+      </div>
+    </div>
+    
+    <div>
+      <label for="SSC_Marks" class="block font-bold text-xl">SSC Marks:</label>
+      <input type="range" id="SSC_Marks" name="SSC_Marks" min="0" max="100" value="50" class="w-full" required>
+      <span class="text-sm text-gray-500 block mt-2">Current Value: <span id="sscMarksValue">50</span></span>
+    </div>
+    
+    <div>
+      <label for="HSC_Marks" class="block font-bold text-xl">HSC Marks:</label>
+      <input type="range" id="HSC_Marks" name="HSC_Marks" min="0" max="100" value="50" class="w-full" required>
+      <span class="text-sm text-gray-500 block mt-2">Current Value: <span id="hscMarksValue">50</span></span>
+    </div>
+    
+    <input type="submit" value="Submit" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300">
+  </form>
+
+</div>
+
+<!-- JavaScript to update slider values -->
+<script>
+  const cgpaSlider = document.getElementById('CGPA');
+  const cgpaValue = document.getElementById('cgpaValue');
+  cgpaValue.textContent = cgpaSlider.value;
+  cgpaSlider.addEventListener('input', function() {
+    cgpaValue.textContent = cgpaSlider.value;
+  });
+</script>
+
+</body>
+</html>
